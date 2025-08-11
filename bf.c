@@ -63,6 +63,13 @@ int main(int argc, char** argv) {
                 }
                 break;
             }
+            case '#': {
+                if(fseek(file, -arr[p], SEEK_CUR)) {
+                    printf("%s: error while seeking", argv[0]);
+                    exit(-1);
+                }
+                break;
+            }
             case '_': {
                 if(p+2 >= 512) p = 0;
                 arr[p+2] = arr[p] | arr[p+1];
